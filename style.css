@@ -1,0 +1,384 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  overflow-x:hidden;
+  overflow-y:auto;
+  font-family:Arial, sans-serif;
+  background:#0d98bf;
+}
+
+.hero{
+  width:100%;
+  min-height:100vh;
+  position:relative;
+  overflow:visible;
+  background:
+    radial-gradient(circle at center, rgba(255,255,255,.18), transparent 40%),
+    linear-gradient(to bottom, #1aa7d1 0%, #0b86b2 45%, #0a7ea7 100%);
+}
+
+.hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,.08), transparent 20%),
+    radial-gradient(circle at 70% 20%, rgba(255,255,255,.06), transparent 18%),
+    radial-gradient(circle at 50% 80%, rgba(255,255,255,.05), transparent 22%);
+  pointer-events:none;
+}
+
+/* =========================
+   NAV
+========================= */
+
+.nav{
+  width:100%;
+  min-height:140px;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  padding:30px 40px;
+  position:relative;
+  z-index:10;
+}
+
+.nav a{
+  color:white;
+  text-decoration:none;
+  font-size:32px;
+  font-family:cursive;
+  text-shadow:0 0 10px rgba(255,255,255,.6);
+}
+
+.logo{
+  color:white;
+  font-size:56px;
+  line-height:.85;
+  text-align:center;
+  font-family:cursive;
+  text-shadow:0 0 20px rgba(255,255,255,.7);
+}
+
+.cart{
+  font-size:22px !important;
+  font-family:Arial !important;
+  font-weight:bold;
+}
+
+/* =========================
+   DRESS ROOM
+========================= */
+
+.dressroom{
+  position:relative;
+  width:100%;
+  height:calc(100vh - 140px);
+  min-height:700px;
+  overflow:visible;
+}
+
+/* =========================
+   MODEL
+========================= */
+
+.model{
+  width:280px;
+  height:620px;
+  position:absolute;
+  left:50%;
+  top:48%;
+  transform:translate(-50%,-50%);
+  z-index:2;
+}
+
+.model img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
+
+/* =========================
+   ITEMS
+========================= */
+
+.item{
+  position:absolute;
+  cursor:grab;
+  user-select:none;
+  touch-action:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:transform .15s ease;
+  border-radius:999px;
+  overflow:hidden;
+  z-index:3;
+    box-shadow:0 10px 25px rgba(255, 255, 255, 0.644);
+  transition:transform .15s ease;
+  border-radius:999px;
+  overflow:hidden;
+}
+
+.item img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+  pointer-events:none;
+}
+
+.item:hover{
+  transform:scale(1.05);
+}
+
+.item.active{
+  cursor:grabbing;
+  z-index:999;
+}
+
+/* =========================
+   ITEMS SIZE
+   (전체 20% 축소 적용)
+========================= */
+
+.pink-skirt{
+  width:160px;
+  height:160px;
+  left:16%;
+  top:16%;
+}
+
+.blue-skirt{
+  width:136px;
+  height:136px;
+  left:30%;
+  top:12%;
+}
+
+.pants1{
+  width:330px;
+  height:330px;
+  left:4%;
+  top:42%;
+}
+
+.pants2{
+  width:320px;
+  height:320px;
+  left:21%;
+  top:50%;
+}
+
+.top1{
+  width:96px;
+  height:96px;
+  left:64%;
+  top:18%;
+}
+
+.top2{
+  width:480px;
+  height:480px;
+  left:72%;
+  top:20%;
+}
+
+.dress{
+  width:240px;
+  height:240px;
+  left:66%;
+  top:48%;
+}
+
+.socks{
+  width:128px;
+  height:128px;
+  left:82%;
+  top:58%;
+}
+
+/* =========================
+   GUIDE TEXT
+========================= */
+
+.guide{
+  position:absolute;
+  bottom:30px;
+  width:100%;
+  text-align:center;
+  color:white;
+  font-size:32px;
+  font-family:cursive;
+  text-shadow:0 0 10px rgba(255,255,255,.7);
+  z-index:20;
+  pointer-events:none;
+}
+
+/* =========================
+   SHOP SECTION
+========================= */
+
+.shop-section{
+  min-height:100vh;
+  padding:80px 8%;
+  background:
+  linear-gradient(to bottom, #0a7ea7 0%, #0b86b2 35%, #0d98bf 100%);
+}
+
+.divider{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:28px;
+  margin-bottom:60px;
+}
+
+.divider span{
+  width:180px;
+  height:1px;
+  background:rgba(255,255,255,.75);
+}
+
+.divider h2{
+  font-family:cursive;
+  font-size:42px;
+  font-weight:400;
+  color:white;
+  text-shadow:0 0 10px rgba(255,255,255,.7);
+}
+
+/* =========================
+   PRODUCT GRID
+========================= */
+
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:70px 48px;
+  align-items:start;
+}
+
+.product-card{
+  text-align:center;
+  color:white;
+  font-family:cursive;
+  font-size:18px;
+}
+
+.product-card p{
+  margin-top:12px;
+}
+
+.product-card span{
+  display:block;
+  margin-top:4px;
+  font-size:14px;
+}
+
+.product-img{
+  width:180px;
+  height:180px;
+  margin:0 auto;
+  border-radius:50%;
+  /* background:white; */
+    background: radial-gradient(
+    circle,
+    rgba(255,255,255,1) 0%,
+    rgba(255,255,255,.92) 35%,
+    rgba(255,255,255,.55) 65%,
+    rgba(255,255,255,0) 100%
+  );
+
+  box-shadow:0 0 35px rgba(255,255,255,.9);
+
+  overflow:hidden;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.product-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.photo{
+  height:260px;
+  border-radius:4px;
+  background:rgba(255,255,255,.9);
+  box-shadow:0 0 35px rgba(255,255,255,.9);
+  overflow:hidden;
+}
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.photo1{
+  background:linear-gradient(135deg,#ffe1cf,#b5e7ef);
+}
+
+.photo2{
+  background:linear-gradient(135deg,#ffc8d4,#fff4e0);
+}
+
+.wide{
+  grid-column:span 2;
+}
+
+.shop-all{
+  margin-top:90px;
+  text-align:center;
+  color:white;
+  font-family:cursive;
+  font-size:28px;
+  text-shadow:0 0 10px rgba(255,255,255,.7);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width:900px){
+
+  .nav{
+    flex-wrap:wrap;
+    gap:20px;
+  }
+
+  .nav a{
+    font-size:24px;
+  }
+
+  .logo{
+    font-size:42px;
+  }
+
+  .model{
+    width:220px;
+    height:500px;
+  }
+
+  .guide{
+    font-size:24px;
+  }
+
+  .product-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .wide{
+    grid-column:span 2;
+  }
+}

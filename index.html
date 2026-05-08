@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anoche Soné</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <section class="hero">
+    <nav class="nav">
+      <a href="#">Shop</a>
+      <a href="#">Build Your Outfit</a>
+
+      <div class="logo">
+        Anoche<br>Soné
+      </div>
+
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#" class="cart">Cart</a>
+    </nav>
+
+    <div class="dressroom">
+      <div class="model"><img src="images/main.png"></div>
+
+      <div class="item drag pink-skirt"><img src="images/1.png" alt=""></div>
+      <div class="item drag blue-skirt"><img src="images/2.png"> </div>
+      <div class="item drag pants1"><img src="images/3.png"> </div>
+      <div class="item drag pants2"><img src="images/5.png"></div>
+      <div class="item drag top1"><img src="images/7.png"></div>
+      <div class="item drag top2"><img src="images/6.png"></div>
+      <div class="item drag dress"><img src="images/4.png"></div>
+      <div class="item drag socks"><img src="images/8.png"></div>
+    </div>
+
+    <p class="guide">☆ ° Drag & Drop Clothes ° ☆</p>
+  </section>
+
+  <section class="shop-section">
+  <div class="divider">
+    <span></span>
+    <h2>Shop</h2>
+    <span></span>
+  </div>
+
+  <div class="product-grid">
+    <div class="product-card">
+      <div class="product-img pink-raglan"><img src="images/1.png"></div>
+      <p>Pink Raglan T</p>
+      <span>$45</span>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img white-raglan"><img src="images/2.png"></div>
+      <p>White Raglan T</p>
+      <span>$45</span>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img bikini"><img src="images/3.png"></div>
+      <p>Bikini Set</p>
+      <span>$48</span>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img skirt"><img src="images/4.png"></div>
+      <p>Mini Skirt</p>
+      <span>$55</span>
+    </div>
+
+    <div class="product-card wide">
+      <div class="photo photo1"><img src="images/2-1.png"> </div>
+    </div>
+
+    <div class="product-card wide">
+      <div class="photo photo2"><img src="images/2-2.png"></div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img socks-blue"></div>
+      <p>Blue Socks</p>
+      <span>$20</span>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img socks-pink"></div>
+      <p>Pink Socks</p>
+      <span>$20</span>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img pants-pink"></div>
+      <p>Pink Pants</p>
+      <span>$65</span>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img pants-green"></div>
+      <p>Green Pants</p>
+      <span>$65</span>
+    </div>
+  </div>
+
+  <p class="shop-all">☆ ° Shop all ° ☆</p>
+</section>
+
+  <script>
+    const items = document.querySelectorAll(".drag");
+
+    items.forEach(item => {
+      let offsetX = 0;
+      let offsetY = 0;
+
+      item.addEventListener("pointerdown", e => {
+        item.setPointerCapture(e.pointerId);
+        item.classList.add("active");
+
+        const rect = item.getBoundingClientRect();
+
+        offsetX = e.clientX - rect.left;
+        offsetY = e.clientY - rect.top;
+      });
+
+      item.addEventListener("pointermove", e => {
+        if (!item.classList.contains("active")) return;
+
+        const parent = item.parentElement.getBoundingClientRect();
+
+        item.style.left = `${e.clientX - parent.left - offsetX}px`;
+        item.style.top = `${e.clientY - parent.top - offsetY}px`;
+      });
+
+      item.addEventListener("pointerup", () => {
+        item.classList.remove("active");
+      });
+    });
+  </script>
+</body>
+</html>
